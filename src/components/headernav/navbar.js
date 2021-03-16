@@ -10,7 +10,7 @@ class Navbar extends Component {
           return (
             <a
               key={index}
-              className="navbar__link"
+              className={`navbar__link ${link.active ? "green-text" : ""}`}
               onClick={() => console.log("trying to switch tab")}
             >
               {link.title}
