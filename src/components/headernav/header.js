@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
+import history from "../../history";
 
 class Header extends Component {
   render() {
@@ -13,7 +14,7 @@ class Header extends Component {
               <a
                 key={index}
                 className="header__link"
-                onClick={() => console.log("trying to switch tab")}
+                onClick={() => history.push(link.path)}
               >
                 {link.title}
               </a>
