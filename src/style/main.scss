@@ -19,6 +19,11 @@ body {
 @import "headernavbar.scss";
 @import "auth/signin.scss";
 @import "auth/signup.scss";
+
 @import "page-title.scss";
 @import "form-fields.scss";
 @import "details.scss";
+
+@import "account/account.scss";
+@import "account/account-information.scss";
+@import "account/purchase-history.scss";
