@@ -11,9 +11,6 @@ function PurchaseDetailLabel({ className, title, value }) {
   );
 }
 
-//         total: 8.02
-//         creditCard: "-0000",
-
 class PurchaseDetail extends Component {
   render() {
     const {
