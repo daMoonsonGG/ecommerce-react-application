@@ -4,8 +4,6 @@ import { reduxForm, Field } from "redux-form";
 
 import { FormInput, FormButton, LongGrayButton } from "../formFields";
 
-import history from "../../history";
-
 class AccountInformationForm extends Component {
   constructor() {
     super();
