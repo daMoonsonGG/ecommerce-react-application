@@ -8,13 +8,25 @@ function CartButton({ className, icon }) {
   );
 }
 
+function CartFooter({ className, products }) {
+  const price = 7.96;
+  return (
+    <div className={`${className} cart-footer`}>
+      <a className="cart-footer__checkout">Checkout</a>
+      <div className="cart-footer__subtotal">Subtotal</div>
+      <div className="cart-footer__price">${price}</div>
+    </div>
+  );
+}
+
 function CartContent({ className, products }) {
   let count = products.length;
+  let productsJSX = products.map((product) => <h1 key={product}>{product}</h1>);
   return (
     <div className={`${className} cart-content`}>
       <div className="cart-content__title">Cart ({count})</div>
-      <div className="cart-content__products"></div>
-      <div className="cart-content__footer"></div>
+      <div className="cart-content__products">{productsJSX}</div>
+      <CartFooter className="cart-content__footer" products={products} />
     </div>
   );
 }
@@ -27,7 +39,7 @@ class ShopCart extends Component {
         <CartButton className="shop-cart__toggle" icon="fas fa-times" />
         <CartContent
           className="shop-cart__content"
-          products={[2, 3, 2, 1, 1]}
+          products={[0, 1, 2, 3, 4]}
         />
       </div>
     );
