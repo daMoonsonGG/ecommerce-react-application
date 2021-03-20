@@ -3,25 +3,7 @@ import { connect } from "react-redux";
 
 import CartProduct from "./cartProduct";
 import * as actions from "../../actions";
-
-function CartButton({ className, icon }) {
-  return (
-    <div className={`${className} cart-button`}>
-      <i className={icon} />
-    </div>
-  );
-}
-
-function CartFooter({ className, products }) {
-  const price = 7.96;
-  return (
-    <div className={`${className} cart-footer`}>
-      <a className="cart-footer__checkout">Checkout</a>
-      <div className="cart-footer__subtotal">Subtotal</div>
-      <div className="cart-footer__price">${price}</div>
-    </div>
-  );
-}
+import CartButton from "./cartButton";
 
 function CartContent({ className, products }) {
   let count = products.length;
@@ -37,15 +19,39 @@ function CartContent({ className, products }) {
   );
 }
 
+function CartFooter({ className, products }) {
+  const price = 7.96;
+  return (
+    <div className={`${className} cart-footer`}>
+      <a className="cart-footer__checkout">Checkout</a>
+      <div className="cart-footer__subtotal">Subtotal</div>
+      <div className="cart-footer__price">${price}</div>
+    </div>
+  );
+}
+
 class ShopCart extends Component {
   componentDidMount() {
     this.props.fetchCartProducts();
   }
+  handleAddToCart = () => {
+    if (
+      document.getElementById("shop-cart").classList.contains("cart-hidden")
+    ) {
+      document.getElementById("shop-cart").classList.remove("cart-hidden");
+    } else {
+      document.getElementById("shop-cart").classList.add("cart-hidden");
+    }
+  };
   render() {
     const { className } = this.props;
     return (
-      <div className={`${className} shop-cart`}>
-        <CartButton className="shop-cart__toggle" icon="fas fa-times" />
+      <div id="shop-cart" className={`${className} shop-cart cart-hidden`}>
+        <CartButton
+          className="shop-cart__toggle"
+          icon="fas fa-times"
+          onClick={this.handleAddToCart}
+        />
         <CartContent
           className="shop-cart__content"
           products={this.props.cartProducts}
