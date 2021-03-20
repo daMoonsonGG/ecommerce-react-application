@@ -60,6 +60,7 @@
     scrollbar-width: none;
     overflow-y: scroll;
     padding-top: 50px;
+    grid-row-gap: 45px;
   }
 
   &__products::-webkit-scrollbar {
