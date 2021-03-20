@@ -2,6 +2,12 @@
   &__products {
     grid-column: 1/-1;
     grid-row: products-s/products-e;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  &__products::-webkit-scrollbar {
+    display: none;
   }
 
   &__line {
