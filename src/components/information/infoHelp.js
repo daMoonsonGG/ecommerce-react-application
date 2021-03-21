@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 export function UnderLinedTitle({ className, title }) {
   return <div className={`${className} underlined-title`}>{title}</div>;
